@@ -63,7 +63,7 @@ h2 {
 }
 
 .card:nth-child(1) .circle {
-  background: url("https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat 50% 50%/cover;
+  background: url("https://media.istockphoto.com/id/1418210562/photo/brazil-wildlife-capybara-hydrochoerus-hydrochaeris-biggest-mouse-near-the-water-with-evening.jpg?s=612x612&w=0&k=20&c=4n7n90f6wotXEqt_Wg9R-zpHSrzuu275_4vMdQXToiM=") no-repeat 50% 50%/cover;
   bottom: 0;
   right: 0;
   clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
