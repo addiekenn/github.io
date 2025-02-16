@@ -1,7 +1,7 @@
 //genuary day5
 let w, n;
 let colors = [
-  "#414245", 
+  "hot pink", 
   "#5c5d5f", 
   "#78797b", 
   "#959698", 
