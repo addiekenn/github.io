@@ -34,8 +34,8 @@
     background-color: lavender;
 
 }
-@media (min-height: 801px) {
+@media (min-height: 800px) {
     #tallScreen p {
-        color: orange;
+       background-color: orange;
     }
 }
