@@ -1,0 +1,47 @@
+/* Background color for the page */
+body {
+    background-color: khaki;
+}
+
+/* Box 1: Changes color when hovered */
+#box1 {
+    width: 25vw;
+    height: 20vh;
+    background-color: indianred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#box1:hover {
+    background-color: purple;
+    color: white;
+}
+
+/* Box 2: Moves around using keyframes */
+#box2 {
+    width: 25vw;
+    height: 20vh;
+    position: relative;
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 1s ease-in-out;
+}
+
+/* Add animation when hovered */
+#box2:hover {
+    animation: box2move 4s infinite alternate;
+}
+
+@keyframes box2move {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 50px); }
+    50% { transform: translate(-50px, 100px); }
+    75% { transform: translate(100px, -50px); }
+    100% { transform: translate(0, 0); }
+}
