@@ -13,11 +13,20 @@ body {
    
 }
 
+@font-face {
+    font-family: 'JabbaTheFont';
+    src: url('JabbaFont.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* Header Styling */
 header {
     background-color: #0026ff;
     padding: 20px;
     text-align: center;
+    font-family: 'JabbaTheFont', sans-serif;
     font-size: 2em;
     font-weight: bold;
     letter-spacing: 2px;
