@@ -15,13 +15,13 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #00b3ff;
+    background-color: #0026ff;
     padding: 20px;
     text-align: center;
     font-size: 2em;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #000dff;
+    color: #ffffff;
 }
 
 
@@ -39,7 +39,7 @@ header {
     background-color: rgba(17, 17, 17, 0.9);
     transition: transform 0.3s ease;
     position: relative;
-    border: 5px solid #00ccff; /* Thick Light Blue Outline */
+    border: 5px solid #002aff; /* Thick Light Blue Outline */
 }
 
 /* Ombre Laser Outline */
