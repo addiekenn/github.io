@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>No JS fluid animation</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<svg width="0" height="0" aria-hidden="true">
+  <filter id="smoke" color-interpolation-filters="sRGB">
+    <feTurbulence baseFrequency=".00713" result="t"></feTurbulence>
+    <feComponentTransfer>
+      <feFuncA type="discrete" tableValues="1"></feFuncA>
+    </feComponentTransfer>
+    <feGaussianBlur stdDeviation="5" result="i"></feGaussianBlur>
+    <feBlend in="SourceGraphic" in2="t" mode="exclusion"></feBlend>
+    <feDisplacementMap in="i" scale="180" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+  </filter>
+</svg>
+<div></div>
+<!-- partial -->
+  
+</body>
+</html>
