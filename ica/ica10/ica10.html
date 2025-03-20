@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICA 10</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        #name {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Elements</h1>
+    
+    <div id="name">Addie</div>
+    <button id="colorButton">Change Background Color</button>
+    <div id="box"></div>
+    
+    <script>
+        document.getElementById("colorButton").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        });
+        
+        document.getElementById("name").addEventListener("click", function() {
+            this.style.color = "#" + Math.floor(Math.random()*16777215).toString(16);
+        });
+        
+        document.getElementById("box").addEventListener("click", function() {
+            this.style.width = Math.floor(Math.random() * 200 + 50) + "px";
+            this.style.height = Math.floor(Math.random() * 200 + 50) + "px";
+            this.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        });
+    </script>
+</body>
+</html>
