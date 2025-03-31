@@ -1,0 +1,577 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "Geist", sans-serif;
+  font-size: clamp(20px, 5vw, 45px);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  background-color: #555;
+  color: PaleVioletRed;
+  /* pre display用 */
+  background-image: url("https://images.unsplash.com/photo-1597992350431-56cb7e28a7a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDMwMjAzNDN8&ixlib=rb-4.0.3&q=80&w=400");
+  background-position: center bottom;
+  background-size: cover;
+}
+
+@property --pos-x {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --pos-y {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+#prism {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: overlay;
+  --size: 0.025;
+  --opacity: 1;
+  /* start value */
+  --pos-x-s: 0vw;
+  --pos-y-s: 0vh;
+  --angle-s: 0deg;
+  /* end value */
+  --pos-x-e: 0vw;
+  --pos-y-e: 0vh;
+  --angle-e: 0deg;
+  --scale: 1;
+  --duration: 2s;
+  --delay: 0s;
+}
+#prism > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(((100vmin + 100vmax) / 2) * var(--size));
+  height: calc(((100vmin + 100vmax) / 2) * var(--size));
+  background-image: linear-gradient(to bottom in oklch decreasing hue, oklch(0.8 0.3 300deg/var(--opacity)) 24%, oklch(0.8 0.2 300deg/var(--opacity)), oklch(0.8 0.2 300deg/var(--opacity)), oklch(0.95 0.2 270deg/var(--opacity)), oklch(0.95 0.2 270deg/var(--opacity)), oklch(0.95 0.2 240deg/var(--opacity)), oklch(0.95 0.2 240deg/var(--opacity)), oklch(0.95 0.1 210deg/var(--opacity)), oklch(0.95 0.1 210deg/var(--opacity)), oklch(0.95 0.1 180deg/var(--opacity)), oklch(0.95 0.1 180deg/var(--opacity)), oklch(0.95 0.1 150deg/var(--opacity)), oklch(0.95 0.1 150deg/var(--opacity)), oklch(0.95 0.1 120deg/var(--opacity)), oklch(0.95 0.1 120deg/var(--opacity)), oklch(0.95 0.2 90deg/var(--opacity)), oklch(0.95 0.2 90deg/var(--opacity)), oklch(0.95 0.2 60deg/var(--opacity)), oklch(0.95 0.2 60deg/var(--opacity)), oklch(0.95 0.2 30deg/var(--opacity)), oklch(0.95 0.2 30deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)) 78%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-mask-image: radial-gradient(closest-side circle at center, white 30%, transparent);
+          mask-image: radial-gradient(closest-side circle at center, white 30%, transparent);
+  transform: skew(calc(var(--angle) / 2), var(--angle)) rotate(calc(var(--angle) * -2)) translate3d(var(--pos-x), var(--pos-y), 0) scale3d(calc(var(--scale) / 1.8), var(--scale), 1);
+  transform-origin: center top;
+  will-change: transform;
+  -webkit-animation-name: anim;
+          animation-name: anim;
+  -webkit-animation-duration: var(--duration);
+          animation-duration: var(--duration);
+  -webkit-animation-delay: var(--delay);
+          animation-delay: var(--delay);
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* お好みで
+      filter: blur(1px);
+  */
+}
+#prism > div:nth-child(1) {
+  --pos-x-s: 13.2vw;
+  --pos-y-s: 91vh;
+  --angle-s: 5.3deg;
+  --pos-x-e: 18.5vw;
+  --pos-y-e: 98.8vh;
+  --angle-e: 19.8deg;
+  --scale: 2.02;
+  --duration: 5.5s;
+  --delay: -1.41s;
+  --opacity: 0.45;
+}
+#prism > div:nth-child(2) {
+  --pos-x-s: 62.7vw;
+  --pos-y-s: 62vh;
+  --angle-s: -9.1deg;
+  --pos-x-e: 71.3vw;
+  --pos-y-e: 70.9vh;
+  --angle-e: -24.7deg;
+  --scale: 1.6;
+  --duration: 5.3s;
+  --delay: -3.33s;
+  --opacity: 0.43;
+}
+#prism > div:nth-child(3) {
+  --pos-x-s: 47.3vw;
+  --pos-y-s: 66.3vh;
+  --angle-s: 5.6deg;
+  --pos-x-e: 57.2vw;
+  --pos-y-e: 76.9vh;
+  --angle-e: 25.3deg;
+  --scale: 3;
+  --duration: 7.6s;
+  --delay: -13.26s;
+  --opacity: 0.21;
+}
+#prism > div:nth-child(4) {
+  --pos-x-s: 9.3vw;
+  --pos-y-s: 88.3vh;
+  --angle-s: -8.1deg;
+  --pos-x-e: 19.6vw;
+  --pos-y-e: 95.9vh;
+  --angle-e: -10.7deg;
+  --scale: 2.05;
+  --duration: 7.5s;
+  --delay: -8.31s;
+  --opacity: 0.51;
+}
+#prism > div:nth-child(5) {
+  --pos-x-s: 12.5vw;
+  --pos-y-s: 29.9vh;
+  --angle-s: 9.3deg;
+  --pos-x-e: 22.8vw;
+  --pos-y-e: 35vh;
+  --angle-e: 30.3deg;
+  --scale: 2.99;
+  --duration: 14.8s;
+  --delay: -3.39s;
+  --opacity: 0.6;
+}
+#prism > div:nth-child(6) {
+  --pos-x-s: 39.7vw;
+  --pos-y-s: 11.5vh;
+  --angle-s: -7.6deg;
+  --pos-x-e: 45.6vw;
+  --pos-y-e: 16.7vh;
+  --angle-e: -29.1deg;
+  --scale: 2.18;
+  --duration: 14s;
+  --delay: -14.01s;
+  --opacity: 0.45;
+}
+#prism > div:nth-child(7) {
+  --pos-x-s: 96.2vw;
+  --pos-y-s: 13.6vh;
+  --angle-s: 9.5deg;
+  --pos-x-e: 103.6vw;
+  --pos-y-e: 24.3vh;
+  --angle-e: 16.5deg;
+  --scale: 2.53;
+  --duration: 10.4s;
+  --delay: -3.57s;
+  --opacity: 0.5;
+}
+#prism > div:nth-child(8) {
+  --pos-x-s: 45vw;
+  --pos-y-s: 58.4vh;
+  --angle-s: -8.8deg;
+  --pos-x-e: 53.5vw;
+  --pos-y-e: 63.7vh;
+  --angle-e: -29.1deg;
+  --scale: 1.82;
+  --duration: 9.2s;
+  --delay: -17.61s;
+  --opacity: 0.3;
+}
+#prism > div:nth-child(9) {
+  --pos-x-s: 27.3vw;
+  --pos-y-s: 99.9vh;
+  --angle-s: 7.1deg;
+  --pos-x-e: 39.6vw;
+  --pos-y-e: 109vh;
+  --angle-e: 19.5deg;
+  --scale: 1.37;
+  --duration: 14.3s;
+  --delay: -10.53s;
+  --opacity: 0.49;
+}
+#prism > div:nth-child(10) {
+  --pos-x-s: 13.3vw;
+  --pos-y-s: 94.5vh;
+  --angle-s: -6.9deg;
+  --pos-x-e: 20.3vw;
+  --pos-y-e: 105.6vh;
+  --angle-e: -9.9deg;
+  --scale: 1.23;
+  --duration: 6.2s;
+  --delay: -9s;
+  --opacity: 0.31;
+}
+#prism > div:nth-child(11) {
+  --pos-x-s: 88.8vw;
+  --pos-y-s: 78.4vh;
+  --angle-s: 6.6deg;
+  --pos-x-e: 98.5vw;
+  --pos-y-e: 84.8vh;
+  --angle-e: 14deg;
+  --scale: 2.58;
+  --duration: 7.5s;
+  --delay: -17.61s;
+  --opacity: 0.4;
+}
+#prism > div:nth-child(12) {
+  --pos-x-s: 40.8vw;
+  --pos-y-s: 88.3vh;
+  --angle-s: -6.4deg;
+  --pos-x-e: 48.5vw;
+  --pos-y-e: 95.1vh;
+  --angle-e: -10.5deg;
+  --scale: 2.64;
+  --duration: 8.6s;
+  --delay: -1.92s;
+  --opacity: 0.26;
+}
+#prism > div:nth-child(13) {
+  --pos-x-s: 36.2vw;
+  --pos-y-s: 54.2vh;
+  --angle-s: 7.9deg;
+  --pos-x-e: 41.3vw;
+  --pos-y-e: 62.5vh;
+  --angle-e: 25.2deg;
+  --scale: 2.22;
+  --duration: 14s;
+  --delay: -14.73s;
+  --opacity: 0.49;
+}
+#prism > div:nth-child(14) {
+  --pos-x-s: 58.9vw;
+  --pos-y-s: 30.6vh;
+  --angle-s: -5.8deg;
+  --pos-x-e: 66.7vw;
+  --pos-y-e: 37.9vh;
+  --angle-e: -22.4deg;
+  --scale: 1.95;
+  --duration: 14.6s;
+  --delay: -19.59s;
+  --opacity: 0.55;
+}
+#prism > div:nth-child(15) {
+  --pos-x-s: 11.7vw;
+  --pos-y-s: 10.3vh;
+  --angle-s: 6.1deg;
+  --pos-x-e: 19.2vw;
+  --pos-y-e: 16.2vh;
+  --angle-e: 27.3deg;
+  --scale: 1.84;
+  --duration: 6.8s;
+  --delay: -1.95s;
+  --opacity: 0.69;
+}
+#prism > div:nth-child(16) {
+  --pos-x-s: 89.8vw;
+  --pos-y-s: 65.1vh;
+  --angle-s: -9.7deg;
+  --pos-x-e: 99.6vw;
+  --pos-y-e: 71.4vh;
+  --angle-e: -25.3deg;
+  --scale: 1.62;
+  --duration: 14.2s;
+  --delay: -15.57s;
+  --opacity: 0.25;
+}
+#prism > div:nth-child(17) {
+  --pos-x-s: 27.5vw;
+  --pos-y-s: 5vh;
+  --angle-s: 6.8deg;
+  --pos-x-e: 40vw;
+  --pos-y-e: 17.9vh;
+  --angle-e: 28.5deg;
+  --scale: 1.01;
+  --duration: 7.3s;
+  --delay: -0.6s;
+  --opacity: 0.62;
+}
+#prism > div:nth-child(18) {
+  --pos-x-s: 71.4vw;
+  --pos-y-s: 17.6vh;
+  --angle-s: -6.4deg;
+  --pos-x-e: 80vw;
+  --pos-y-e: 23vh;
+  --angle-e: -21.9deg;
+  --scale: 2.37;
+  --duration: 5.8s;
+  --delay: -9.57s;
+  --opacity: 0.41;
+}
+#prism > div:nth-child(19) {
+  --pos-x-s: 67.3vw;
+  --pos-y-s: 14vh;
+  --angle-s: 8.9deg;
+  --pos-x-e: 74.5vw;
+  --pos-y-e: 26.9vh;
+  --angle-e: 17.2deg;
+  --scale: 2.64;
+  --duration: 10.7s;
+  --delay: -8.34s;
+  --opacity: 0.5;
+}
+#prism > div:nth-child(20) {
+  --pos-x-s: 56.6vw;
+  --pos-y-s: 7.7vh;
+  --angle-s: -7deg;
+  --pos-x-e: 62.5vw;
+  --pos-y-e: 16.9vh;
+  --angle-e: -10.2deg;
+  --scale: 1.95;
+  --duration: 13.6s;
+  --delay: -5.49s;
+  --opacity: 0.69;
+}
+#prism > div:nth-child(21) {
+  --pos-x-s: 86.2vw;
+  --pos-y-s: 17.6vh;
+  --angle-s: 5.4deg;
+  --pos-x-e: 95.2vw;
+  --pos-y-e: 29.8vh;
+  --angle-e: 20.8deg;
+  --scale: 2.81;
+  --duration: 7.8s;
+  --delay: -8.28s;
+  --opacity: 0.64;
+}
+#prism > div:nth-child(22) {
+  --pos-x-s: 45.6vw;
+  --pos-y-s: 87vh;
+  --angle-s: -8.1deg;
+  --pos-x-e: 58.2vw;
+  --pos-y-e: 98.6vh;
+  --angle-e: -24.2deg;
+  --scale: 1.66;
+  --duration: 9s;
+  --delay: -19.44s;
+  --opacity: 0.55;
+}
+#prism > div:nth-child(23) {
+  --pos-x-s: 51.3vw;
+  --pos-y-s: 87.2vh;
+  --angle-s: 9.3deg;
+  --pos-x-e: 58.9vw;
+  --pos-y-e: 96.5vh;
+  --angle-e: 17.5deg;
+  --scale: 1.11;
+  --duration: 12.5s;
+  --delay: -1.38s;
+  --opacity: 0.33;
+}
+#prism > div:nth-child(24) {
+  --pos-x-s: 51vw;
+  --pos-y-s: 25.4vh;
+  --angle-s: -6.8deg;
+  --pos-x-e: 61.8vw;
+  --pos-y-e: 36.1vh;
+  --angle-e: -10.3deg;
+  --scale: 2.63;
+  --duration: 11.9s;
+  --delay: -3.75s;
+  --opacity: 0.31;
+}
+#prism > div:nth-child(25) {
+  --pos-x-s: 11.6vw;
+  --pos-y-s: 90.3vh;
+  --angle-s: 9.6deg;
+  --pos-x-e: 24.5vw;
+  --pos-y-e: 103vh;
+  --angle-e: 30.7deg;
+  --scale: 2.21;
+  --duration: 8.1s;
+  --delay: -9.12s;
+  --opacity: 0.28;
+}
+#prism > div:nth-child(26) {
+  --pos-x-s: 5.5vw;
+  --pos-y-s: 17.2vh;
+  --angle-s: -9.1deg;
+  --pos-x-e: 11.3vw;
+  --pos-y-e: 26.6vh;
+  --angle-e: -29.4deg;
+  --scale: 2.56;
+  --duration: 11.1s;
+  --delay: -19.62s;
+  --opacity: 0.31;
+}
+#prism > div:nth-child(27) {
+  --pos-x-s: 4.1vw;
+  --pos-y-s: 80.6vh;
+  --angle-s: 8.9deg;
+  --pos-x-e: 11.8vw;
+  --pos-y-e: 90.6vh;
+  --angle-e: 19.7deg;
+  --scale: 1.28;
+  --duration: 5.1s;
+  --delay: -16.11s;
+  --opacity: 0.64;
+}
+#prism > div:nth-child(28) {
+  --pos-x-s: 75.6vw;
+  --pos-y-s: 58.1vh;
+  --angle-s: -5.5deg;
+  --pos-x-e: 87.3vw;
+  --pos-y-e: 65.7vh;
+  --angle-e: -11.2deg;
+  --scale: 2.67;
+  --duration: 11.1s;
+  --delay: -8.55s;
+  --opacity: 0.52;
+}
+#prism > div:nth-child(29) {
+  --pos-x-s: 51.8vw;
+  --pos-y-s: 74.8vh;
+  --angle-s: 8.6deg;
+  --pos-x-e: 60.8vw;
+  --pos-y-e: 86.5vh;
+  --angle-e: 24.2deg;
+  --scale: 1.42;
+  --duration: 7.9s;
+  --delay: -4.89s;
+  --opacity: 0.54;
+}
+#prism > div:nth-child(30) {
+  --pos-x-s: 20.6vw;
+  --pos-y-s: 70.2vh;
+  --angle-s: -8.7deg;
+  --pos-x-e: 30.3vw;
+  --pos-y-e: 82.3vh;
+  --angle-e: -28.9deg;
+  --scale: 1.28;
+  --duration: 8.9s;
+  --delay: -12.48s;
+  --opacity: 0.24;
+}
+#prism > div:nth-child(even) {
+  animation-direction: alternate-reverse;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    --pos-x: var(--pos-x-s);
+    --pos-y: var(--pos-y-s);
+    --angle: var(--angle-s);
+  }
+  100% {
+    --pos-x: var(--pos-x-e);
+    --pos-y: var(--pos-y-e);
+    --angle: var(--angle-e);
+  }
+}
+
+@keyframes anim {
+  0% {
+    --pos-x: var(--pos-x-s);
+    --pos-y: var(--pos-y-s);
+    --angle: var(--angle-s);
+  }
+  100% {
+    --pos-x: var(--pos-x-e);
+    --pos-y: var(--pos-y-e);
+    --angle: var(--angle-e);
+  }
+}
+main {
+  position: relative;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@property --hue {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+h1,
+p {
+  background-image: linear-gradient(60deg in oklch longer hue, oklch(0.9 0.1 360deg), oklch(0.9 0.1 0deg));
+  background-position: 200% 0%;
+  background-repeat: repeat;
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-animation-name: anim-text;
+          animation-name: anim-text;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  animation-direction: reverse;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  will-change: background;
+}
+
+h1 {
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px oklch(0.7 0.2 var(--hue)/0.3);
+  text-stroke: 1px oklch(0.7 0.2 var(--hue)/0.3);
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes anim-text {
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+@keyframes anim-text {
+  100% {
+    background-position: -200% 0%;
+  }
+}
+/*** photo auto slider ***/
+
+
+@-webkit-keyframes anim-image {
+  0%, 30%, 100% {
+    opacity: 0;
+  }
+  /* 非表示 */
+  8%, 22% {
+    opacity: 1;
+  }
+  /* 表示 */
+}
+
+@keyframes anim-image {
+  0%, 30%, 100% {
+    opacity: 0;
+  }
+  /* 非表示 */
+  8%, 22% {
+    opacity: 1;
+  }
+  /* 表示 */
+}
