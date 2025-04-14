@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rick & Morty Quote Machine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="character-box">
+    <div id="spinner">🌀 Loading a Rick and Morty character...</div>
+    <h2 id="char-name">Click the button to meet a character!</h2>
+    <img id="character-img" src="" alt="" style="display:none;">
+    <p id="quote"></p>
+    <p id="species"></p>
+    <button onclick="getCharacter()">Get Character</button>
+  </div>
+
+  <p class="explanation">
+    <strong>Extension:</strong> This quote machine uses the Rick and Morty character API to show a random character’s name, picture, and species along with a random Rick & Morty-style quote..
+  </p>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

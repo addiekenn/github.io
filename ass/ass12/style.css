@@ -1,0 +1,65 @@
+body {
+    background: linear-gradient(to bottom, #0d0d2b, #1e1e5a);
+    color: white;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    padding: 2rem;
+    background-image: url('https://i.imgur.com/E2J9Qhn.jpg'); /* optional space bg */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  #character-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+  
+  #character-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 1rem 0;
+    border: 3px solid #00ffcc;
+  }
+  
+  #spinner {
+    display: none;
+    font-size: 1.5rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #00ffcc;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+  .explanation {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
