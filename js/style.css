@@ -1,0 +1,70 @@
+body {
+    background: #fff0f0;
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    padding: 2em;
+  }
+  
+  h1 {
+    color: #cc0000;
+  }
+
+  #current-display {
+    margin-top: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    color: darkblue;
+    background-color: #e0e0ff;
+    border: 2px solid #6666ff;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  #instructions {
+    margin: 1em auto;
+    font-size: 1.2em;
+    color: #990000;
+  }
+  
+  #button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 2em;
+    max-height: 60vh;
+    overflow-y: scroll;
+    border: 3px dashed red;
+    padding: 1em;
+    background-color: #ffe6e6;
+  }
+  
+  .combo-btn {
+    padding: 6px;
+    font-size: 0.9em;
+    min-width: 80px;
+    background-color: #fff;
+    border: 2px solid red;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  
+  
+  .combo-btn:hover {
+    background-color: #ffe;
+    transform: scale(1.05);
+  }
+  
+  .selected {
+    background-color: yellow;
+    border-color: green;
+  }
+  
+  #result {
+    margin-top: 1.5em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #aa0000;
+  }
+  
