@@ -87,14 +87,13 @@ class Ball {
   }
 }
 
-// Create 10 balls in an array 0-9
 const balls = [];
-const digits = [...Array(10).keys()]; 
+const digits = [...Array(10).keys(), ...Array(10).keys()];
 digits.forEach((digit) => {
   const size = 30;
   const ball = new Ball(
     random(size, width - size),
-    random(size + 50, height - size), 
+    random(size + 50, height - size),
     random(-5, 5),
     random(-5, 5),
     randomRGB(),
