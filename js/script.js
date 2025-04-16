@@ -37,8 +37,8 @@ class Ball {
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
 
-    // numbers
-    ctx.fillStyle = "white";
+    // Draw digit in black
+    ctx.fillStyle = "black";
     ctx.font = `${this.size}px sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -71,7 +71,7 @@ class Ball {
           this.digit = other.digit;
           other.digit = tempDigit;
 
-          // color swap
+          // Swap colors
           const tempColor = this.color;
           this.color = other.color;
           other.color = tempColor;
@@ -87,6 +87,7 @@ class Ball {
   }
 }
 
+// Create 20 balls 
 const balls = [];
 const digits = [...Array(10).keys(), ...Array(10).keys()];
 digits.forEach((digit) => {
@@ -94,8 +95,8 @@ digits.forEach((digit) => {
   const ball = new Ball(
     random(size, width - size),
     random(size + 50, height - size),
-    random(-5, 5),
-    random(-5, 5),
+    random(-7, 7), 
+    random(-7, 7),
     randomRGB(),
     size,
     digit.toString()
@@ -103,7 +104,7 @@ digits.forEach((digit) => {
   balls.push(ball);
 });
 
-// click
+
 canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
   const mouseX = e.clientX - rect.left;
