@@ -6,7 +6,7 @@ const height = (canvas.height = window.innerHeight);
 
 const phoneDisplay = document.getElementById("phone-display");
 let selectedDigits = [];
-let submitted = false; // Track if user submitted
+let submitted = false;
 
 function updatePhoneDisplay() {
   const padded = selectedDigits.join("").padEnd(10, "-");
@@ -38,7 +38,6 @@ class Ball {
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
 
-    // Draw digit in black
     ctx.fillStyle = "black";
     ctx.font = `${this.size}px sans-serif`;
     ctx.textAlign = "center";
@@ -50,11 +49,9 @@ class Ball {
     if (this.x + this.size >= width || this.x - this.size <= 0) {
       this.velX = -this.velX;
     }
-
     if (this.y + this.size >= height || this.y - this.size <= 0) {
       this.velY = -this.velY;
     }
-
     this.x += this.velX;
     this.y += this.velY;
   }
@@ -96,8 +93,8 @@ digits.forEach((digit) => {
   const ball = new Ball(
     random(size, width - size),
     random(size + 50, height - size),
-    random(-5, 2), 
-    random(-5, 2),
+    random(-3, 2),
+    random(-3, 2),
     randomRGB(),
     size,
     digit.toString()
@@ -105,9 +102,8 @@ digits.forEach((digit) => {
   balls.push(ball);
 });
 
-// Handle mouse clicks
 canvas.addEventListener("click", (e) => {
-  if (submitted) return; // No clicking after submit
+  if (submitted) return;
 
   const rect = canvas.getBoundingClientRect();
   const mouseX = e.clientX - rect.left;
@@ -125,18 +121,34 @@ canvas.addEventListener("click", (e) => {
 // Create Submit button
 const submitButton = document.createElement("button");
 submitButton.textContent = "Submit Phone Number";
+submitButton.classList.add("submit-button");
 document.body.appendChild(submitButton);
+
+// Create Reset button
+const resetButton = document.createElement("button");
+resetButton.textContent = "Reset";
+resetButton.classList.add("reset-button");
+document.body.appendChild(resetButton);
 
 // Handle Submit click
 submitButton.addEventListener("click", () => {
   if (selectedDigits.length === 10) {
     submitted = true;
-    phoneDisplay.textContent = "Phone Number Received!";
+    phoneDisplay.textContent = "Phone Number Received! 🎉";
     submitButton.disabled = true;
     submitButton.textContent = "Thank you!";
   } else {
     alert("Please enter all 10 digits first!");
   }
+});
+
+//  Reset click
+resetButton.addEventListener("click", () => {
+  selectedDigits = [];
+  submitted = false;
+  updatePhoneDisplay();
+  submitButton.disabled = false;
+  submitButton.textContent = "Submit Phone Number";
 });
 
 function loop() {
