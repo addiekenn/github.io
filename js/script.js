@@ -96,8 +96,8 @@ digits.forEach((digit) => {
   const ball = new Ball(
     random(size, width - size),
     random(size + 50, height - size),
-    random(-5, 5), // Slower speed
-    random(-5, 5),
+    random(-5, 3), 
+    random(-5, 3),
     randomRGB(),
     size,
     digit.toString()
